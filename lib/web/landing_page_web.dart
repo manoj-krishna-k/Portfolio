@@ -21,7 +21,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
   final GlobalKey targetKeyContact = GlobalKey();
   urlLauncher(imagepath, link) {
     return IconButton(
-      icon: SvgPicture.asset(imagepath, width: 35.0, color: Colors.white),
+      icon: SvgPicture.asset(imagepath, width: 35.0, color: Colors.black),
       onPressed: () async {
         await launchUrl(Uri.parse(link));
       },
@@ -37,7 +37,8 @@ class _LandingPageWebState extends State<LandingPageWeb> {
         backgroundColor: Colors.white,
 
         drawer: Drawer(
-          backgroundColor: Color(0xff001a33),
+          backgroundColor: Colors.white,
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -50,7 +51,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                 ),
               ),
               SizedBox(height: 15.0),
-              SansBold("Manoj Krishna K", 30),
+              SansBoldAni("Manoj Krishna K", 30, Colors.black),
               SizedBox(height: 15.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -143,7 +144,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               key: targetKeyHome,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/blackBackground.png"),
+                  image: AssetImage("assets/mainBackground2.png"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -179,21 +180,21 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       SizedBox(height: 10),
                       Row(
                         children: [
-                          Icon(Icons.email, color: Colors.white),
+                          Icon(Icons.email, color: Colors.black),
                           Sans(" manojprof6@gmail.com", 14),
                         ],
                       ),
                       SizedBox(height: 10),
                       Row(
                         children: [
-                          Icon(Icons.call, color: Colors.white),
+                          Icon(Icons.call, color: Colors.black),
                           Sans(" +91 9344391890", 14),
                         ],
                       ),
                       SizedBox(height: 10),
                       Row(
                         children: [
-                          Icon(Icons.location_pin, color: Colors.white),
+                          Icon(Icons.location_pin, color: Colors.black),
                           Sans(" Paramakudi, Ramnad", 14),
                         ],
                       ),
@@ -221,7 +222,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               key: targetKeyAbout,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/blackBackground.png"),
+                  image: AssetImage("assets/mainBackground2.png"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -246,6 +247,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       width: widthDevice / 1.1,
                       height: heightDevice / 1.7,
                       child: AnimatedContainer(
+                        curve: Curves.easeInOut,
                         duration: const Duration(milliseconds: 150),
                         decoration: BoxDecoration(
                           color: aboutSelected
@@ -295,7 +297,11 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SansBold("About Me", aboutSelected ? 40 : 30),
+                                SansBoldAni(
+                                  "About Me",
+                                  aboutSelected ? 40 : 30,
+                                  aboutSelected ? Colors.white : Colors.black,
+                                ),
                                 SizedBox(height: 10),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -303,8 +309,8 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                                   children: [
                                     Sans(
                                       "I am a second-year Computer Science and Engineering "
-                                      " undergraduate with a CGPA of 8.61, having "
-                                      "\ncompleted three semesters. I have a strong "
+                                      " undergraduate with a CGPA of 8.655, having "
+                                      "\ncompleted four semesters. I have a strong "
                                       "foundation in computer science and hands-on experience\n"
                                       "in web development, with Full Stack Development as my "
                                       "career focus. I am currently learning Flutter through a \n"
@@ -312,6 +318,9 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                                       "passionate about learning new technologies, building \n"
                                       "practical projects, and creating impactful software solutions.",
                                       aboutSelected ? 15 : 14,
+                                      color: aboutSelected
+                                          ? Colors.white
+                                          : null,
                                     ),
                                   ],
                                 ),
@@ -330,7 +339,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/blackBackground.png"),
+                  image: AssetImage("assets/mainBackground2.png"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -373,7 +382,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               key: targetKeySkills,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/blackBackground.png"),
+                  image: AssetImage("assets/mainBackground2.png"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -470,7 +479,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               key: targetKeyContact,
               duration: const Duration(milliseconds: 200),
               height: heightDevice,
-              decoration: BoxDecoration(color: Color(0xff0f1329)),
+              decoration: BoxDecoration(color: Color(0xFF143657)),
 
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

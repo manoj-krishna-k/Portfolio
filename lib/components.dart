@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:manoj_krishna/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TabsWeb extends StatefulWidget {
@@ -61,7 +61,7 @@ class SansBold extends StatelessWidget {
       style: GoogleFonts.openSans(
         fontSize: size,
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: Colors.black,
       ),
     );
   }
@@ -70,14 +70,17 @@ class SansBold extends StatelessWidget {
 class Sans extends StatelessWidget {
   final text;
   final size;
-
-  const Sans(this.text, this.size, {super.key});
+  final color;
+  const Sans(this.text, this.size, {super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.openSans(fontSize: size, color: Colors.white),
+      style: GoogleFonts.openSans(
+        fontSize: size,
+        color: color == null ? Colors.black : color,
+      ),
     );
   }
 }
@@ -272,7 +275,7 @@ class _ButtonAnimationState extends State<ButtonAnimation> {
   late bool submitted = false;
   late String displaytext = "";
   bool isHover = false;
-  Color color = Colors.purpleAccent;
+  Color color = darkBlue;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -280,37 +283,32 @@ class _ButtonAnimationState extends State<ButtonAnimation> {
         MouseRegion(
           onEnter: (_) {
             setState(() {
-              color = Colors.tealAccent;
               isHover = true;
             });
           },
           onExit: (_) {
             setState(() {
-              color = Colors.purpleAccent;
               isHover = false;
             });
           },
-          child: AnimatedSize(
-            duration: const Duration(milliseconds: 200),
-            child: MaterialButton(
-              onPressed: () {
-                setState(() {
-                  submitted = true;
-                  displaytext = widget.displaytext;
-                });
-              },
-              color: color,
-              height: isHover ? 70 : 60,
-              minWidth: isHover ? 180 : 170,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                widget.text,
-                style: GoogleFonts.oswald(
-                  fontSize: isHover ? 25 : 23,
-                  color: isHover ? Colors.black : Colors.white,
-                ),
+          child: MaterialButton(
+            onPressed: () {
+              setState(() {
+                submitted = true;
+                displaytext = widget.displaytext;
+              });
+            },
+            color: color,
+            height: isHover ? 70 : 60,
+            minWidth: isHover ? 180 : 170,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Text(
+              widget.text,
+              style: GoogleFonts.oswald(
+                fontSize: isHover ? 25 : 23,
+                color: Colors.white,
               ),
             ),
           ),
@@ -372,7 +370,7 @@ class _SkillCardsState extends State<SkillCards> with TickerProviderStateMixin {
           borderRadius: BorderRadius.all(Radius.circular(40)),
           boxShadow: [
             BoxShadow(
-              color: Colors.purpleAccent,
+              color: lightPink,
               blurRadius: 10,
               spreadRadius: 0,
               offset: Offset(4, 4),
